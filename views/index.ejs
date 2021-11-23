@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crud App</title>
+</head>
+<body>
+  <h1> CRUD Operation using Mongo, Express and Node</h1>
+  <form action="/create" method="POST">
+    <input type="text" placeholder="name" name="name" id="name">
+    <input type="text" placeholder="message" name="message" id="message">
+    <button type="submit">Submit</button>
+  </form>
+  <!-- <%= resdata %> -->
+  <table class="table table-striped table-bordered table-sm" border="1">
+      <thead class="thread-dark">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Message</th>
+          <th>Operation 1</th>
+          <th>Operation 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i = 0; i < resdata.length; i++) {%>
+            <tr>
+                <td><%= resdata[i]._id %></td>
+                <td><%= resdata[i].name %></td>
+                <td><%= resdata[i].message %></td>
+                <td><button>Update</button></td>
+                <td><button>Delete</button></td>
+            </tr>
+        <% } %>
+      </tbody>
+  </table>
+  <form action="/update" method="post">  
+  <input type="text" placeholder="Id" name="id" id="idns">
+    <br>
+    <input type="text" placeholder="Updated Name" name="name2" id="updatedname">
+    <input type="text" placeholder="Updated message" name="message2" id="updatedmessage">
+    <br>
+    <button id="update">Update</button>
+    <br>
+</form>
+<form method="post" action="/delete">
+    <input type="text" placeholder="Id" name="deleteid" id="deleteid">
+    <br>
+    <button id="delete">Delete</button>
+    <br>
+</form>
+</body>
+</html>
